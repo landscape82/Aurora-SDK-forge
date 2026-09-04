@@ -46,12 +46,22 @@
       "type": "shell"
     },
     {
+      "label": "Build Example - Template",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/Examples/Template"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
       "label": "Build",
       "dependsOn": [
         "Build Example - Blink",
         "Build Example - Volume",
         "Build Example - Ringmod",
-        "Build Example - HardwareSmokeTest"
+        "Build Example - HardwareSmokeTest",
+        "Build Example - Template"
       ],
       "problemMatcher": [],
       "group": {
@@ -96,12 +106,22 @@
       "type": "shell"
     },
     {
+      "label": "Clean Example - Template",
+      "command": "make clean",
+      "options": {
+        "cwd": "${workspaceFolder}/Examples/Template"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
       "label": "Clean",
       "dependsOn": [
         "Clean Example - Blink",
         "Clean Example - Volume",
         "Clean Example - Ringmod",
-        "Clean Example - HardwareSmokeTest"
+        "Clean Example - HardwareSmokeTest",
+        "Clean Example - Template"
       ],
       "problemMatcher": []
     }

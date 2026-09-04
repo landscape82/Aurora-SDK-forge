@@ -19,6 +19,7 @@ Below we'll cover some basic topics to get started writing your own code to run 
 * [Reading and Running Examples](#reading-and-running-examples)
   * [Blink](#blink)
   * [Hardware Smoke Test](#hardware-smoke-test)
+  * [Template](#template)
   * [Volume](#volume)
   * [Ringmod](#ringmod)
 * [Going Further](#going-further)
@@ -198,6 +199,19 @@ It provides:
 - button, gate, and input-level feedback on the remaining LEDs
 
 This is useful when bringing up a module, checking a hardware revision, or verifying that all front-panel controls and IO are behaving before starting more complex firmware work.
+
+## Template
+
+This example is the recommended starting point for new custom Aurora firmware projects.
+
+It provides:
+
+- a dedicated firmware state struct
+- separate control, audio, and LED update functions
+- a simple passthrough-style effect that can be replaced incrementally
+- button and gate handling already wired into the structure
+
+The intent is to copy this example when starting a new module concept, then replace the placeholder control mapping, DSP behavior, and LED language with the behavior for the new firmware.
 
 ## Volume
 
