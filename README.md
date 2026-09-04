@@ -18,6 +18,7 @@ Below we'll cover some basic topics to get started writing your own code to run 
   * [Building the Examples](#building-the-examples)
 * [Reading and Running Examples](#reading-and-running-examples)
   * [Blink](#blink)
+  * [Hardware Smoke Test](#hardware-smoke-test)
   * [Volume](#volume)
   * [Ringmod](#ringmod)
 * [Going Further](#going-further)
@@ -184,6 +185,19 @@ System::Delay(500);
 Check out the [full example code here](https://github.com/Qu-Bit-Electronix/Aurora-SDK/blob/main/Examples/Blink/Blink.cpp)
 
 In more complex projects we'll want to avoid using delays, but we'll get into techniques for doing that later.
+
+## Hardware Smoke Test
+
+This example is intended as a quick validation firmware for the Aurora module itself.
+
+It provides:
+
+- stereo audio passthrough
+- test tones on the left or right channel while `Freeze` or `Reverse` are held, or when their gate inputs are high
+- top-row LED feedback for all six knobs and their matching CV inputs
+- button, gate, and input-level feedback on the remaining LEDs
+
+This is useful when bringing up a module, checking a hardware revision, or verifying that all front-panel controls and IO are behaving before starting more complex firmware work.
 
 ## Volume
 
