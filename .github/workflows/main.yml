@@ -7,24 +7,41 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  validate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         submodules: 'recursive'
     - name: arm-none-eabi-gcc
       uses: fiam/arm-none-eabi-gcc@v1
       with:
         release: '9-2019-q4'
-    - name: Build Libraries
-      run: ./ci/build_libs.sh
     - name: setup python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
-        python-version: 3.8
-    - name: Build Examples
-      run: python ./ci/build_examples.py
+        python-version: '3.11'
+    - name: Validate Builds
+      run: ./ci/validate_build.sh
+
+  dist:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+    - name: arm-none-eabi-gcc
+      uses: fiam/arm-none-eabi-gcc@v1
+      with:
+        release: '9-2019-q4'
+    - name: setup python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - name: Validate Builds
+      run: ./ci/validate_build.sh
     - name: Create Distributable Binaries
       run: python ./ci/build_dist.py -ru
     - name: Deploy Dist
