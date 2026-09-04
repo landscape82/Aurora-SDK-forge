@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose an SDK, tooling, or firmware-oriented improvement.
+title: "Adding: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the feature in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: What problem it solves
+      description: Explain why this change is useful.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the implementation or behavior you want.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and risks
+      description: Include SDK limits, Eurorack behavior, hardware revision concerns, or workflow constraints.
+    validations:
+      required: false

@@ -1,0 +1,35 @@
+name: Firmware idea
+description: Capture a new alternate-firmware concept for the Aurora module.
+title: "Adding: "
+labels:
+  - firmware
+  - idea
+body:
+  - type: textarea
+    id: concept
+    attributes:
+      label: Firmware concept
+      description: Describe the musical idea and the intended module behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: controls
+    attributes:
+      label: Control mapping
+      description: Explain how `Warp`, `Time`, `Blur`, `Reflect`, `Mix`, `Atmosphere`, `Freeze`, `Reverse`, and `Shift` should behave.
+    validations:
+      required: true
+  - type: textarea
+    id: patching
+    attributes:
+      label: Patching use case
+      description: Describe how this would be used in a Eurorack patch.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Technical constraints
+      description: Note CPU, latency, memory, LED UX, USB, or hardware limitations that matter.
+    validations:
+      required: false
