@@ -37,11 +37,21 @@
       "type": "shell"
     },
     {
+      "label": "Build Example - HardwareSmokeTest",
+      "command": "make",
+      "options": {
+        "cwd": "${workspaceFolder}/Examples/HardwareSmokeTest"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
       "label": "Build",
       "dependsOn": [
         "Build Example - Blink",
         "Build Example - Volume",
-        "Build Example - Ringmod"
+        "Build Example - Ringmod",
+        "Build Example - HardwareSmokeTest"
       ],
       "problemMatcher": [],
       "group": {
@@ -77,13 +87,23 @@
       "type": "shell"
     },
     {
+      "label": "Clean Example - HardwareSmokeTest",
+      "command": "make clean",
+      "options": {
+        "cwd": "${workspaceFolder}/Examples/HardwareSmokeTest"
+      },
+      "problemMatcher": [],
+      "type": "shell"
+    },
+    {
       "label": "Clean",
       "dependsOn": [
         "Clean Example - Blink",
         "Clean Example - Volume",
-        "Clean Example - Ringmod"
+        "Clean Example - Ringmod",
+        "Clean Example - HardwareSmokeTest"
       ],
-      "problemMatcher": [],
+      "problemMatcher": []
     }
   ],
   "version": "2.0.0"
