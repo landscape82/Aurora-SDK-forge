@@ -9,6 +9,9 @@ on:
     - './README.md'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   # creates a dist/documentation/* folder containing the html documentation
   deploy-local: 
