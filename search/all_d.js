@@ -4,5 +4,5 @@ var searchData=
   ['processallcontrols_1',['ProcessAllControls',['../classaurora_1_1_hardware.html#a55b1cae42552b2e126e207ede05a217e',1,'aurora::Hardware']]],
   ['processanalogcontrols_2',['ProcessAnalogControls',['../classaurora_1_1_hardware.html#a0a63c31dc3e81f4886eb02d099f37da0',1,'aurora::Hardware']]],
   ['processdigitalcontrols_3',['ProcessDigitalControls',['../classaurora_1_1_hardware.html#ad15c633e129da7cd8630e79b9853c5e9',1,'aurora::Hardware']]],
-  ['project_4',['Creating Your Own Firmware Project',['../index.html#autotoc_md16',1,'']]]
+  ['project_4',['Creating Your Own Firmware Project',['../index.html#autotoc_md17',1,'']]]
 ];

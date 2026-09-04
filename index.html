@@ -126,6 +126,7 @@ Table of Contents</h1>
 <li>Reading and Running Examples<ul>
 <li>Blink</li>
 <li>Hardware Smoke Test</li>
+<li>Template</li>
 <li>Volume</li>
 <li>Ringmod</li>
 </ul>
@@ -240,6 +241,17 @@ Hardware Smoke Test</h2>
 </ul>
 <p>This is useful when bringing up a module, checking a hardware revision, or verifying that all front-panel controls and IO are behaving before starting more complex firmware work.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
+Template</h2>
+<p>This example is the recommended starting point for new custom Aurora firmware projects.</p>
+<p>It provides:</p>
+<ul>
+<li>a dedicated firmware state struct</li>
+<li>separate control, audio, and LED update functions</li>
+<li>a simple passthrough-style effect that can be replaced incrementally</li>
+<li>button and gate handling already wired into the structure</li>
+</ul>
+<p>The intent is to copy this example when starting a new module concept, then replace the placeholder control mapping, DSP behavior, and LED language with the behavior for the new firmware.</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
 Volume</h2>
 <p><img src="https://images.squarespace-cdn.com/content/v1/56feccc7a3360c08ffa34ed4/d0123cf8-7f65-451a-8c5e-2cd62bc653ed/Mix_animation.gif?format=2500w" alt="" data-image-focal-point="0.5,0.5" style="width: 100%; height: 100%; object-position: 50% 50%; object-fit: cover; cursor: auto;" data-parent-ratio="4.2" data-image-resolution="2500w" class="inline"/></p>
 <p>In this example, we're going to add two new things to what our previous example did: audio, and knobs!</p>
@@ -292,7 +304,7 @@ Volume</h2>
 <div class="line">}</div>
 </div><!-- fragment --><p>For a bit more detail on how audio works on the Daisy, check out the <a href="https://electro-smith.github.io/libDaisy/md_doc_md__a3__getting__started__audio.html">Getting Started - Audio</a> guide.</p>
 <p>And check out the <a href="https://github.com/Qu-Bit-Electronix/Aurora-SDK/blob/main/Examples/Volume/Volume.cpp">full example code here</a></p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Ringmod</h2>
 <p><img src="https://images.squarespace-cdn.com/content/v1/56feccc7a3360c08ffa34ed4/7900e6c4-20ad-4601-b5b7-923a668bec59/ringmod_animation.gif?format=2500w" alt="" data-image-focal-point="0.5,0.5" style="width: 100%; height: 100%; object-position: 50% 50%; object-fit: cover; cursor: auto;" data-parent-ratio="4.2" data-image-resolution="2500w" class="inline"/></p>
 <p>In this example, we're going to take what we learned in the Volume example, and make something a bit more exciting happen.</p>
@@ -320,10 +332,10 @@ Ringmod</h2>
 <div class="line">}</div>
 </div><!-- fragment --><p>To do the actual ring modulation effect, we'll multiply that signal by our input signal.</p>
 <p>Check out the <a href="https://github.com/Qu-Bit-Electronix/Aurora-SDK/blob/main/Examples/Ringmod/Ringmod.cpp">full example code here</a></p>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Going Further</h1>
 <p>Now that we can compile the provided examples, let's look at where we might want to go from here.</p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md16"></a>
 Copying and Modifying an Example</h2>
 <p>A great starting point is to copy one of the existing examples, and making modifications.</p>
 <p>For example, a good first modification to any of the existing examples would be to add the corresponding CV input to one of the knob controls.</p>
@@ -334,7 +346,7 @@ Copying and Modifying an Example</h2>
 <li>and the <code>CPP_SOURCES</code> filename (on line 8) if you change the cpp file name.</li>
 </ul>
 <p>To build your new file you'll either need to edit the <code>.vscode/tasks.json</code> file (copying the entry for "Build Example - X" to your new folder name), or to run the <code>make</code> command directly from the terminal</p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Creating Your Own Firmware Project</h2>
 <p>Once you've dabbled a bit, and want to make your own custom firmware for yourself (or to share with the community), you can set some stuff up to start making your own folders.</p>
 <p>If you're keeping your new project in the <code>Examples</code> folder you won't have to change much other than what was mentioned above.</p>
@@ -344,7 +356,7 @@ Creating Your Own Firmware Project</h2>
 <div class="fragment"><div class="line">git submodule add https://github.com/qu-bit-electronix/Aurora-SDK</div>
 </div><!-- fragment --><p>and initialize it with:</p>
 <div class="fragment"><div class="line">git submodule update --init</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md18"></a>
 Sharing Firmware With the Community</h2>
 <p>Once you've got something cool you may want to share the binary, and/or the source code with the community!</p>
 <p>The <a href="https://discord.gg/BZmuBxcE">Qu-Bit Discord</a> is a great place to share your project along with any details about how it works.</p>

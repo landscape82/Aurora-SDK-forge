@@ -39,13 +39,14 @@ var NAVTREE =
     [ "Repository Workflow", "index.html#autotoc_md9", [
       [ "Blink", "index.html#autotoc_md10", null ],
       [ "Hardware Smoke Test", "index.html#autotoc_md11", null ],
-      [ "Volume", "index.html#autotoc_md12", null ],
-      [ "Ringmod", "index.html#autotoc_md13", null ]
+      [ "Template", "index.html#autotoc_md12", null ],
+      [ "Volume", "index.html#autotoc_md13", null ],
+      [ "Ringmod", "index.html#autotoc_md14", null ]
     ] ],
-    [ "Going Further", "index.html#autotoc_md14", [
-      [ "Copying and Modifying an Example", "index.html#autotoc_md15", null ],
-      [ "Creating Your Own Firmware Project", "index.html#autotoc_md16", null ],
-      [ "Sharing Firmware With the Community", "index.html#autotoc_md17", null ]
+    [ "Going Further", "index.html#autotoc_md15", [
+      [ "Copying and Modifying an Example", "index.html#autotoc_md16", null ],
+      [ "Creating Your Own Firmware Project", "index.html#autotoc_md17", null ],
+      [ "Sharing Firmware With the Community", "index.html#autotoc_md18", null ]
     ] ],
     [ "a1_Building the Examples", "md_docs_2md_2a1___building_01the_01_examples.html", null ],
     [ "Additional Resources", "usergroup0.html", [
