@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# TODO: 
-# having to do a separate line for each exclude is silly
-# and we should be able to run this with wildcards without it
-# going crazy.
+set -euo pipefail
 
-python ./utils/run-clang-format.py -r ./ \
-    -e ./DaisySP -e ./libdaisy -e ./cube -e ./utils -e ./resources \
-    -e ./seed/experimental -e ./patch/experimental \
-    --extensions c,cpp,h
+if ! command -v clang-format >/dev/null 2>&1; then
+    echo "clang-format is required to run style checks."
+    exit 1
+fi
+
+mapfile -t files < <(rg --files include Examples ci -g '*.[ch]' -g '*.cpp' -g '*.hpp')
+
+if [ ${#files[@]} -eq 0 ]; then
+    echo "No source files found for style validation."
+    exit 0
+fi
+
+clang-format --dry-run --Werror "${files[@]}"
