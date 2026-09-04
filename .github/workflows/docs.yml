@@ -17,20 +17,18 @@ jobs:
   deploy-local: 
     permissions:
       contents: write
-      checks: write
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: mattnotmitt/doxygen-action@v1
       with:
         doxyfile-path: docs/Doxyfile
-    - uses: EndBug/add-and-commit@v9
+    - name: Upload Documentation Artifacts
+      uses: actions/upload-artifact@v4
       with:
-        message: 'Automated: commiting doxygen reference'
-        add: dist/documentation
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: aurora-documentation
+        path: dist/documentation/
+        if-no-files-found: error
     - name: deploy web
       uses: peaceiris/actions-gh-pages@v3
       with:
