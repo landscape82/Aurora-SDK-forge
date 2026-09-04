@@ -6,7 +6,7 @@ on:
     paths:
     - 'include/*'
     - 'docs/*'
-    - './README.md'
+    - 'README.md'
   workflow_dispatch:
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - uses: mattnotmitt/doxygen-action@v1
       with:
         doxyfile-path: docs/Doxyfile

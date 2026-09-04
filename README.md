@@ -24,6 +24,7 @@ Below we'll cover some basic topics to get started writing your own code to run 
   * [Copying and Modifying an Example](#copying-and-modifying-an-example)
   * [Creating Your Own Firmware Project](#creating-your-own-firmware-project)
   * [Sharing Firmware With the Community](#sharing-firmware-with-the-community)
+* [Repository Workflow](#repository-workflow)
 
 # Compiling the Examples
 
@@ -134,6 +135,19 @@ To load one of the examples just drag the .bin file of your choice onto your USB
 **Note**: In order to ensure that you're loading the desired program, you should have only one `.bin` file in the root directory of the USB drive. (you can keep as many as you want in folders, though!)
 
 The most up to date, official Aurora firmware can always be downloaded from [the Aurora product page](https://www.qubitelectronix.com/shop/aurora)
+
+# Repository Workflow
+
+This repository uses a pull-request-based workflow for changes to `main`.
+
+- Create changes on a feature branch
+- Open a PR with the repository PR template
+- Make sure the `validate` check passes
+- Document local test or hardware validation steps in the PR
+
+For contributor workflow details, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Generated files in `dist/` are currently committed by automation on `main` after validation passes. Treat `dist/` as published build output rather than hand-edited source.
 
 ## Blink
 
