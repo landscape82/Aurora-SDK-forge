@@ -32,7 +32,7 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
     - uses: actions/checkout@v4
       with:
@@ -49,9 +49,9 @@ jobs:
       run: ./ci/validate_build.sh
     - name: Create Distributable Binaries
       run: python ./ci/build_dist.py -ru
-    - name: Deploy Dist
-      uses: EndBug/add-and-commit@v4
+    - name: Upload Dist Artifacts
+      uses: actions/upload-artifact@v4
       with:
-        message: 'Automated: Committing Dist folder' 
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: aurora-dist
+        path: dist/
+        if-no-files-found: error
