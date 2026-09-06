@@ -1,23 +1,9 @@
 # Changelog
 
-All notable changes to this repository should be documented in this file.
+This project no longer maintains a hand-written changelog file.
 
-The format is intentionally simple and manual.
+Release history is generated automatically from merged pull requests whenever a `v*.*.*` tag is pushed — see `.github/workflows/release.yml` and the repository's [Releases page](../../releases).
 
-## Unreleased
+Each release lists every merged PR since the previous tag, with a link and author, and also attaches the compiled `.bin` firmware for every example/effect built from that tag.
 
-### Added
-- Repository governance baseline:
-  - PR template
-  - issue templates
-  - `CODEOWNERS`
-  - Dependabot configuration
-- Build validation baseline:
-  - dedicated `validate` workflow path
-  - `ci/validate_build.sh`
-  - repo-scoped style check script
-  - fixed `rebuild_all.sh` Python invocation
-
-### Changed
-- Default branch protection now requires pull requests, one approval, and the `validate` status check
-- GitHub Actions permissions are being tightened toward least privilege
+For unreleased, in-progress work, see open pull requests and `main`'s commit history directly.

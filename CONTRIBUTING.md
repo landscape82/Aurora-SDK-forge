@@ -65,6 +65,10 @@ If `clang-format` is installed, also run:
 ./ci/local_style_check.sh
 ```
 
+## Changelog
+
+There is no hand-maintained `CHANGELOG.md` — release notes are generated automatically from merged PR titles when a `v*.*.*` tag is pushed (see `.github/workflows/release.yml`). Write PR titles that would make sense standing alone in a release note, since they become the changelog entry verbatim.
+
 ## Notes
 
 - Keep changes focused; avoid mixing repo governance and firmware features in one PR

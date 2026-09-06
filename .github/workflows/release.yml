@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
+    - name: arm-none-eabi-gcc
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
+      with:
+        release: '15.3.Rel1'
+    - name: setup python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - name: Validate Builds
+      run: ./ci/validate_build.sh
+    - name: Build Distributable Binaries
+      run: python ./ci/build_dist.py -ru
+    - name: Collect Release Assets
+      run: |
+        mkdir -p release-assets
+        find dist -name '*.bin' -exec cp {} release-assets/ \;
+        cp dist/examples.json release-assets/
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: release-assets/*
+        generate_release_notes: true
