@@ -32,8 +32,44 @@ jobs:
         mkdir -p release-assets
         find dist -name '*.bin' -exec cp {} release-assets/ \;
         cp dist/examples.json release-assets/
+    - name: Generate Standardized Release Notes Header
+      env:
+        TAG_NAME: ${{ github.ref_name }}
+      run: |
+        python3 - <<'PY'
+        import json
+        import os
+
+        tag = os.environ["TAG_NAME"]
+        with open("dist/examples.json") as f:
+            examples = json.load(f)
+
+        lines = [
+            f"# Aurora SDK Firmware Release {tag}",
+            "",
+            "## Included Firmware",
+            "",
+        ]
+        for ex in sorted(examples, key=lambda e: e["name"]):
+            lines.append(f"- **{ex['name']}** — `{os.path.basename(ex['filepath'])}`")
+        lines += [
+            "",
+            "## Flashing Instructions",
+            "",
+            "1. Copy the desired `.bin` file to the root of a FAT32-formatted USB drive",
+            "2. Insert the USB drive into Aurora's front-panel USB port",
+            "3. Power on (or power-cycle) the module — Aurora detects and loads the new firmware automatically",
+            "4. Optionally confirm success via `daisy_boot_log.txt` on the USB drive after boot",
+            "",
+            "## Changes Since Previous Release",
+            "",
+        ]
+        with open("release-notes.md", "w") as f:
+            f.write("\n".join(lines) + "\n")
+        PY
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
         files: release-assets/*
+        body_path: release-notes.md
         generate_release_notes: true
