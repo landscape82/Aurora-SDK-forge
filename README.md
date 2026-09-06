@@ -9,7 +9,7 @@
 
 Everything you need to start writing your own application for the Qu-Bit Aurora Hardware platform!
 
-Check out the [reference documentation](https://qu-bit-electronix.github.io/Aurora-SDK/) for the project.
+Check out the [reference documentation](https://landscape82.github.io/Aurora-SDK-forge/) generated from this fork. The original Qu-Bit SDK's documentation is also available at [qu-bit-electronix.github.io/Aurora-SDK](https://qu-bit-electronix.github.io/Aurora-SDK/) for comparison.
 
 Below we'll cover some basic topics to get started writing your own code to run on the Aurora
 
