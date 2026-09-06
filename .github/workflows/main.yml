@@ -50,7 +50,7 @@ jobs:
     - name: Create Distributable Binaries
       run: python ./ci/build_dist.py -ru
     - name: Upload Dist Artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: aurora-dist
         path: dist/
