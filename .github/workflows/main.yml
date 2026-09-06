@@ -21,7 +21,7 @@ jobs:
       with:
         release: '15.3.Rel1'
     - name: setup python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: '3.11.16'
     - name: Validate Builds
@@ -42,7 +42,7 @@ jobs:
       with:
         release: '15.3.Rel1'
     - name: setup python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v7
       with:
         python-version: '3.11.16'
     - name: Validate Builds
