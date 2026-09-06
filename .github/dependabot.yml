@@ -4,3 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "gitsubmodule"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # libDaisy/DaisySP pins are intentionally reviewed manually (see TOOLCHAIN.md) --
+    # bumping either requires a full rebuild and re-verification pass before merging,
+    # so these PRs are for visibility only, never auto-merge them.
