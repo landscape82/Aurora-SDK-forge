@@ -40,9 +40,11 @@ Overall, this process is pretty simple, regardless of what operating system you'
 
 ## Installing the Toolchain
 
-See [TOOLCHAIN.md](TOOLCHAIN.md) for the exact pinned versions of `arm-none-eabi-gcc`, Python, and the bundled `libDaisy`/`DaisySP` submodule commits used by CI, so local builds can match exactly.
-
 The "toolchain" is a bundle of tools used to take the source code, and turn it into a binary file that can load onto the Aurora (or any other Daisy) hardware.
+
+For Aurora specifically, only `arm-none-eabi-gcc` (the compiler), `make`, and optionally `python3` (for the helper scripts in `ci/`) are required. Aurora loads firmware by dragging a `.bin` file onto a USB drive and power-cycling the module — unlike some other Daisy hardware, it does not use `dfu-util`/USB-DFU flashing or JTAG/`openocd` debugging, so those tools aren't needed here even though generic Daisy toolchain bundles include them.
+
+See [TOOLCHAIN.md](TOOLCHAIN.md) for the exact pinned versions this repository's CI builds with (`arm-none-eabi-gcc` and Python), plus the bundled `libDaisy`/`DaisySP` submodule commits, so local builds can match exactly.
 
 If you've already done some development with Daisy in the past, you should already be good to go, and can skip ahead to the next section.
 
@@ -50,10 +52,10 @@ On any operating system, our recommended text editor is VS Code, but you can wor
 
 ### Windows
 
-1. Download, and run the [Daisy Toolchain for Windows installer](https://media-obsy-dev.fra1.digitaloceanspaces.com/installers/DaisyToolchain-1.0.0-win64.exe) from Qu-bit website.
+1. Download, and run the [Daisy Toolchain Installer for Windows](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-1.1.0-win64.exe) (current as of this writing; check [TOOLCHAIN.md](TOOLCHAIN.md) if you want the exact version this repo's CI uses instead).
 2. Download, and run the [Git for Windows installer](https://git-scm.com/download/win).
 
-This installs the required tools to get up and running with daisy.
+This installs the required tools to get up and running with Daisy.
 
 There are some additional helper scripts that require python, but this is optional.
 
@@ -63,14 +65,23 @@ On Windows, you can install python by downloading the latest from [python.org](h
 
 ### Mac OS
 
-1. Download the [Daisy Toolchain for Mac OS installer](https://media-obsy-dev.fra1.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.1.2.pkg) from the Qu-Bit website.
-2. Unzip, and Double click, the `install.command` file contained within.
+The recommended approach is Homebrew, since it's what this repository's own CI and `TOOLCHAIN.md` are verified against:
 
-There are some additional helper scripts that require python, but this is optional.
+```shell
+brew install --cask gcc-arm-embedded
+```
 
-Mac OS comes with python, but the latest version can be downloaded from [python.org](https://www.python.org/downloads/), or using homebrew.
+Then confirm it installed correctly:
 
-If during the steps below, you run into an error similar to the following:
+```shell
+arm-none-eabi-gcc --version
+```
+
+`make` and `python3` are already included with Mac OS's command line developer tools (see the `xcrun` note below if you haven't installed those yet).
+
+**Alternative**: if you'd rather use a GUI installer instead of Homebrew, Electrosmith provides one for the general Daisy ecosystem: download the [Daisy Toolchain Installer for Mac OS](https://daisy.nyc3.cdn.digitaloceanspaces.com/installers/DaisyToolchain-macos-installer-x64-0.2.0.pkg.zip), unzip it, and right-click (not double-click) the installer package to open it. Note that this bundles extra tools (`dfu-util`, `openocd`) not needed for Aurora specifically.
+
+If during any of the steps above you run into an error similar to the following:
 
 ```
 xcrun: error: invalid active developer path
@@ -81,6 +92,35 @@ then you need to run the following to update, or install the xcode developer too
 ```
 xcode-select --install
 ```
+
+### Linux
+
+Install `make` and, if you plan to use them, `dfu-util`/`openocd` (not required for Aurora's USB-drive firmware loading, only relevant for other Daisy hardware):
+
+```shell
+# Debian/Ubuntu
+sudo apt-get install build-essential
+
+# Fedora
+sudo dnf groupinstall "Development Tools"
+
+# Arch
+sudo pacman -S base-devel
+```
+
+For `arm-none-eabi-gcc`, your distro's packaged version (e.g. `apt-get install gcc-arm-none-eabi`) may be older than what this repo's CI uses. For an exact match, download the version pinned in [TOOLCHAIN.md](TOOLCHAIN.md) directly from [Arm's GNU Toolchain downloads page](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads) (choose the `arm-none-eabi` target for your architecture), extract it, and add its `bin/` directory to your `PATH`, for example in `~/.bashrc`:
+
+```shell
+export PATH="$HOME/path/to/arm-gnu-toolchain/bin:$PATH"
+```
+
+Confirm it's on your `PATH` and matches the version in `TOOLCHAIN.md`:
+
+```shell
+arm-none-eabi-gcc --version
+```
+
+Python 3 is preinstalled on most distributions; if not, install it via your package manager (e.g. `sudo apt-get install python3`).
 
 ## Cloning the SDK
 
