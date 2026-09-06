@@ -13,5 +13,6 @@ var searchData=
   ['led_5flast_10',['LED_LAST',['../namespaceaurora.html#a9a9c6ab298a74678c30dc9d3947d8e1eaa843f019f3d74106e40f62494ddf0c65',1,'aurora']]],
   ['led_5freverse_11',['LED_REVERSE',['../namespaceaurora.html#a9a9c6ab298a74678c30dc9d3947d8e1ea86982932ab7fceff1b3ed9de87f9a76d',1,'aurora']]],
   ['leds_12',['Leds',['../namespaceaurora.html#a9a9c6ab298a74678c30dc9d3947d8e1e',1,'aurora']]],
-  ['libraries_13',['Building the Libraries',['../index.html#autotoc_md6',1,'']]]
+  ['libraries_13',['Building the Libraries',['../index.html#autotoc_md7',1,'']]],
+  ['linux_14',['Linux',['../index.html#autotoc_md5',1,'']]]
 ];

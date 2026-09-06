@@ -29,24 +29,25 @@ var NAVTREE =
     [ "Compiling the Examples", "index.html#autotoc_md1", [
       [ "Installing the Toolchain", "index.html#autotoc_md2", [
         [ "Windows", "index.html#autotoc_md3", null ],
-        [ "Mac OS", "index.html#autotoc_md4", null ]
+        [ "Mac OS", "index.html#autotoc_md4", null ],
+        [ "Linux", "index.html#autotoc_md5", null ]
       ] ],
-      [ "Cloning the SDK", "index.html#autotoc_md5", null ],
-      [ "Building the Libraries", "index.html#autotoc_md6", null ],
-      [ "Building the Examples", "index.html#autotoc_md7", null ]
+      [ "Cloning the SDK", "index.html#autotoc_md6", null ],
+      [ "Building the Libraries", "index.html#autotoc_md7", null ],
+      [ "Building the Examples", "index.html#autotoc_md8", null ]
     ] ],
-    [ "Reading and Running Examples", "index.html#autotoc_md8", null ],
-    [ "Repository Workflow", "index.html#autotoc_md9", [
-      [ "Blink", "index.html#autotoc_md10", null ],
-      [ "Hardware Smoke Test", "index.html#autotoc_md11", null ],
-      [ "Template", "index.html#autotoc_md12", null ],
-      [ "Volume", "index.html#autotoc_md13", null ],
-      [ "Ringmod", "index.html#autotoc_md14", null ]
+    [ "Reading and Running Examples", "index.html#autotoc_md9", null ],
+    [ "Repository Workflow", "index.html#autotoc_md10", [
+      [ "Blink", "index.html#autotoc_md11", null ],
+      [ "Hardware Smoke Test", "index.html#autotoc_md12", null ],
+      [ "Template", "index.html#autotoc_md13", null ],
+      [ "Volume", "index.html#autotoc_md14", null ],
+      [ "Ringmod", "index.html#autotoc_md15", null ]
     ] ],
-    [ "Going Further", "index.html#autotoc_md15", [
-      [ "Copying and Modifying an Example", "index.html#autotoc_md16", null ],
-      [ "Creating Your Own Firmware Project", "index.html#autotoc_md17", null ],
-      [ "Sharing Firmware With the Community", "index.html#autotoc_md18", null ]
+    [ "Going Further", "index.html#autotoc_md16", [
+      [ "Copying and Modifying an Example", "index.html#autotoc_md17", null ],
+      [ "Creating Your Own Firmware Project", "index.html#autotoc_md18", null ],
+      [ "Sharing Firmware With the Community", "index.html#autotoc_md19", null ]
     ] ],
     [ "a1_Building the Examples", "md_docs_2md_2a1___building_01the_01_examples.html", null ],
     [ "Additional Resources", "usergroup0.html", [

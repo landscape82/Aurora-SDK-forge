@@ -13,5 +13,5 @@ var searchData=
   ['getknobvalue_10',['GetKnobValue',['../classaurora_1_1_hardware.html#a2801f3cc7c7f8aac1e6214100cab1bca',1,'aurora::Hardware']]],
   ['getwarpcaldata_11',['GetWarpCalData',['../classaurora_1_1_hardware.html#a522f94d085e33442b847ac2b9d54d3c8',1,'aurora::Hardware']]],
   ['getwarpvoct_12',['GetWarpVoct',['../classaurora_1_1_hardware.html#ad7f6526ef78ee6583d74db5e25c9f5d4',1,'aurora::Hardware']]],
-  ['going_20further_13',['Going Further',['../index.html#autotoc_md15',1,'']]]
+  ['going_20further_13',['Going Further',['../index.html#autotoc_md16',1,'']]]
 ];

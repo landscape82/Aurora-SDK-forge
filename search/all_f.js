@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sdk_0',['SDK',['../index.html',1,'Aurora-SDK'],['../index.html#autotoc_md5',1,'Cloning the SDK']]],
+  ['sdk_0',['SDK',['../index.html',1,'Aurora-SDK'],['../index.html#autotoc_md6',1,'Cloning the SDK']]],
   ['seed_1',['seed',['../classaurora_1_1_hardware.html#abeeed8b2cb38b89c7d61a8d3819bd828',1,'aurora::Hardware']]],
   ['setaudioblocksize_2',['SetAudioBlockSize',['../classaurora_1_1_hardware.html#aa7205d245f0b220379dd42e33031aee6',1,'aurora::Hardware']]],
   ['setaudiosamplerate_3',['SetAudioSampleRate',['../classaurora_1_1_hardware.html#afd8e9b305b13614c94e095e521de142c',1,'aurora::Hardware::SetAudioSampleRate(daisy::SaiHandle::Config::SampleRate samplerate)'],['../classaurora_1_1_hardware.html#a0a641f21805e52d7f55536b65f163559',1,'aurora::Hardware::SetAudioSampleRate(int samplerate)']]],
@@ -8,8 +8,8 @@ var searchData=
   ['setled_5',['SetLed',['../classaurora_1_1_hardware.html#adbdb1f3307f6280acf7c2743e685043b',1,'aurora::Hardware::SetLed(Leds idx, float r, float g, float b)'],['../classaurora_1_1_hardware.html#a816df19f2184e4c15451017774e74c1b',1,'aurora::Hardware::SetLed(Leds idx, daisy::Color c)']]],
   ['settestled_6',['SetTestLed',['../classaurora_1_1_hardware.html#a5173957d8c34b3d0c8f7965152d0c015',1,'aurora::Hardware']]],
   ['setwarpcaldata_7',['SetWarpCalData',['../classaurora_1_1_hardware.html#aa1ed24974dcc71d2bb3db062233fb409',1,'aurora::Hardware']]],
-  ['sharing_20firmware_20with_20the_20community_8',['Sharing Firmware With the Community',['../index.html#autotoc_md18',1,'']]],
-  ['smoke_20test_9',['Hardware Smoke Test',['../index.html#autotoc_md11',1,'']]],
+  ['sharing_20firmware_20with_20the_20community_8',['Sharing Firmware With the Community',['../index.html#autotoc_md19',1,'']]],
+  ['smoke_20test_9',['Hardware Smoke Test',['../index.html#autotoc_md12',1,'']]],
   ['startaudio_10',['StartAudio',['../classaurora_1_1_hardware.html#a109f3b7352656c0cf9c4af1d93411819',1,'aurora::Hardware::StartAudio(daisy::AudioHandle::AudioCallback cb)'],['../classaurora_1_1_hardware.html#a5326282c8311afe5eb977c659e20eb58',1,'aurora::Hardware::StartAudio(daisy::AudioHandle::InterleavingAudioCallback cb)']]],
   ['startlowprioritycallback_11',['StartLowPriorityCallback',['../classaurora_1_1_hardware.html#abb134a8f6729b9379b3a1da933340392',1,'aurora::Hardware']]],
   ['stopaudio_12',['StopAudio',['../classaurora_1_1_hardware.html#a11de774c59fe3186fd7ec2d2688dd035',1,'aurora::Hardware']]],
