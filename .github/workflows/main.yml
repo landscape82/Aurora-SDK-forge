@@ -17,9 +17,9 @@ jobs:
       with:
         submodules: 'recursive'
     - name: arm-none-eabi-gcc
-      uses: fiam/arm-none-eabi-gcc@v1
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
       with:
-        release: '9-2019-q4'
+        release: '15.3.Rel1'
     - name: setup python
       uses: actions/setup-python@v5
       with:
@@ -38,9 +38,9 @@ jobs:
       with:
         submodules: 'recursive'
     - name: arm-none-eabi-gcc
-      uses: fiam/arm-none-eabi-gcc@v1
+      uses: carlosperate/arm-none-eabi-gcc-action@v1
       with:
-        release: '9-2019-q4'
+        release: '15.3.Rel1'
     - name: setup python
       uses: actions/setup-python@v5
       with:
