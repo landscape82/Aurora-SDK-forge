@@ -88,7 +88,7 @@ static void UpdateLeds()
     hw.SetLed(LED_6, 0.0f, 0.0f, state.input_peak[1]);
 
     hw.SetLed(LED_FREEZE,
-              state.freeze_active ? 0.0f : 0.0f,
+              0.0f,
               state.freeze_active ? 0.6f : 0.0f,
               state.freeze_active ? 0.6f : 0.0f);
     hw.SetLed(LED_REVERSE,
@@ -96,10 +96,12 @@ static void UpdateLeds()
               state.reverse_active ? 0.4f : 0.0f,
               0.0f);
 
-    hw.SetLed(LED_BOT_1, state.freeze_active ? 0.0f : state.wet_amount, 0.0f, 0.0f);
+    /** LED_BOT_1/2/3 have no red channel on the hardware (see aurora.h LedMap),
+     *  so feedback for them must go through green/blue only. */
+    hw.SetLed(LED_BOT_1, 0.0f, state.freeze_active ? 0.0f : state.wet_amount, 0.0f);
     hw.SetLed(LED_BOT_2, 0.0f, state.reverse_active ? 0.0f : state.warp_amount, 0.0f);
     hw.SetLed(LED_BOT_3,
-              state.shift_active ? 0.5f : 0.0f,
+              0.0f,
               state.shift_active ? 0.5f : 0.0f,
               state.shift_active ? 0.5f : 0.5f * state.wet_amount);
 
@@ -111,32 +113,37 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
     hw.ProcessAllControls();
     UpdateEffectState();
 
+    const float wet_amount     = state.wet_amount;
+    const float warp_amount    = state.warp_amount;
+    const bool  freeze_active  = state.freeze_active;
+    const bool  reverse_active = state.reverse_active;
+
     float left_peak = 0.0f;
     float right_peak = 0.0f;
 
     for(size_t i = 0; i < size; i++)
     {
-        float left = ProcessSample(in[0][i], state.wet_amount, state.warp_amount);
-        float right = ProcessSample(in[1][i], state.wet_amount, state.warp_amount);
+        const float abs_left = fabsf(in[0][i]);
+        const float abs_right = fabsf(in[1][i]);
+        if(abs_left > left_peak)
+            left_peak = abs_left;
+        if(abs_right > right_peak)
+            right_peak = abs_right;
 
-        if(state.freeze_active)
+        float left = ProcessSample(in[0][i], wet_amount, warp_amount);
+        float right = ProcessSample(in[1][i], wet_amount, warp_amount);
+
+        if(freeze_active)
         {
             left *= 0.8f;
             right *= 0.8f;
         }
 
-        if(state.reverse_active)
+        if(reverse_active)
         {
             left = -left;
             right = -right;
         }
-
-        const float abs_left = fabsf(left);
-        const float abs_right = fabsf(right);
-        if(abs_left > left_peak)
-            left_peak = abs_left;
-        if(abs_right > right_peak)
-            right_peak = abs_right;
 
         out[0][i] = left;
         out[1][i] = right;
