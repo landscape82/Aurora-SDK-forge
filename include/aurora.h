@@ -30,13 +30,13 @@ static daisy::LedDriverPca9685<2, true>::DmaBuffer DMA_BUFFER_MEM_SECTION
  *  This is left global so that it is guaranteed to be within the AXI SRAM
  *  with the aurora_sram.lds linker file.
  */
-daisy::USBHostHandle usb;
+inline daisy::USBHostHandle usb;
 
-/** @brief global accessor to the FatFS interface. 
+/** @brief global accessor to the FatFS interface.
  *  This is left global so that it is guaranteed to be within the AXI SRAM
  *  with the aurora_sram.lds linker file.
  */
-daisy::FatFSInterface fatfs_interface;
+inline daisy::FatFSInterface fatfs_interface;
 
 /** @brief indexed accessors for knob controls 
  *  Example usage:
@@ -201,26 +201,32 @@ class Hardware
      */
     void StartAudio(daisy::AudioHandle::AudioCallback cb)
     {
-        current_cb_ = cb;
+        current_cb_             = cb;
+        current_interleaved_cb_ = nullptr;
         seed.StartAudio(cb);
     }
 
     /** @brief Changes current callback to a new non-interleaved callback */
     void ChangeAudioCallback(daisy::AudioHandle::AudioCallback cb)
     {
-        current_cb_ = cb;
+        current_cb_             = cb;
+        current_interleaved_cb_ = nullptr;
         seed.ChangeAudioCallback(cb);
     }
 
     /** @brief Starts a specified Interleaving audio callback */
     void StartAudio(daisy::AudioHandle::InterleavingAudioCallback cb)
     {
+        current_cb_             = nullptr;
+        current_interleaved_cb_ = cb;
         seed.StartAudio(cb);
     }
 
     /** @brief Changes current callback to a new interleaved callback */
     void ChangeAudioCallback(daisy::AudioHandle::InterleavingAudioCallback cb)
     {
+        current_cb_             = nullptr;
+        current_interleaved_cb_ = cb;
         seed.ChangeAudioCallback(cb);
     }
 
@@ -282,7 +288,11 @@ class Hardware
         seed.StopAudio();
         seed.SetAudioSampleRate(srval);
         seed.SetAudioBlockSize(new_blocksize);
-        seed.StartAudio(current_cb_);
+        if(current_interleaved_cb_)
+            seed.StartAudio(current_interleaved_cb_);
+        else
+            seed.StartAudio(current_cb_);
+        UpdateHidRates();
     }
 
     /** @brief Stops Audio */
@@ -637,7 +647,8 @@ class Hardware
     daisy::LedDriverPca9685<2, true> led_driver_;
 
     /** @brief tracking current callback for recovery after samplerate change */
-    daisy::AudioHandle::AudioCallback current_cb_;
+    daisy::AudioHandle::AudioCallback             current_cb_ = nullptr;
+    daisy::AudioHandle::InterleavingAudioCallback current_interleaved_cb_ = nullptr;
 
     daisy::TimerHandle tim5_handle;
     daisy::I2CHandle   i2c;
