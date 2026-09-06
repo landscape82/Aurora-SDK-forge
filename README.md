@@ -40,6 +40,8 @@ Overall, this process is pretty simple, regardless of what operating system you'
 
 ## Installing the Toolchain
 
+See [TOOLCHAIN.md](TOOLCHAIN.md) for the exact pinned versions of `arm-none-eabi-gcc`, Python, and the bundled `libDaisy`/`DaisySP` submodule commits used by CI, so local builds can match exactly.
+
 The "toolchain" is a bundle of tools used to take the source code, and turn it into a binary file that can load onto the Aurora (or any other Daisy) hardware.
 
 If you've already done some development with Daisy in the past, you should already be good to go, and can skip ahead to the next section.
