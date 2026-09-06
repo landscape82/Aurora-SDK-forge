@@ -30,7 +30,7 @@ jobs:
         path: dist/documentation/
         if-no-files-found: error
     - name: deploy web
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist/documentation/html
