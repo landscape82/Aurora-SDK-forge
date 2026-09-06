@@ -23,7 +23,7 @@ jobs:
     - name: setup python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11'
+        python-version: '3.11.16'
     - name: Validate Builds
       run: ./ci/validate_build.sh
 
@@ -44,7 +44,7 @@ jobs:
     - name: setup python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11'
+        python-version: '3.11.16'
     - name: Validate Builds
       run: ./ci/validate_build.sh
     - name: Create Distributable Binaries
